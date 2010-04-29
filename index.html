@@ -57,6 +57,10 @@
     </div>
 
     <h2>What is it for?</h2>
+    The idea behind this little tool is to have an easy and fast way of creating vieos from lectures and conferences. It allows you to easily mix the audio recording of the lecture with the slides used in it. The trick is that milton takes care of getting screens of all the slides and also determine the amount of the time that each slide should delay in the final composition. The final result is high quality builded with the 'dvd-slideshow' great tools.
+    
+    <h2>Examples</h2>
+    Soon!
     
     <h2>Instructions</h2>
     <ol>
@@ -65,8 +69,13 @@
 		<li>Each time you move forward or backwards in the presentation (using up, down, left, right, avpag, repag keys of your keyboard), milton will capture the screen. <b>Dont use the mouse to control your presentation!</b></li>
 		<li>When the presentation is finished, stop the audio recording and stop milton. You will find a folder (with the name indicated in [1]) containing many png files, each per slide change you made. The filenames are sortered according to the time creation of the slide.</li>
 		<li><p>Run the script <b>milton2slideshow.sh</b> using "folder name" as the directory argument. 'milton2slideshow.sh' is just a simple fork of <a href="http://dvd-slideshow.sourceforge.net/wiki/Dir2slideshow_0.8.0">dir2slideshow</a> (tool incuded in dvd-slideshow), that introduces the time syncronization. So you can use 'milton2slideshow.sh' in the same way you use 'dir2slideshow', all features and command line options are the same.</p>
-		<p>Example: <span style="code">$ milton2slideshow -c 0.5 -n "your presenation title" "folder name"</span></p></li>
-		
+		<p>Example: <span style="code">$ milton2slideshow -c 0.5 -n "your presenation title" "folder name"</span></p>
+		After that a file named "folder name".txt will be generated.
+		</li>
+		<li><p>The final step is to generate the video and mix it with your audio recording. We will ude dvd-slideshow for this. Example:</p>
+			dvd-slideshow -n 'Presentation title' -f "folder name.txt"  -a 'audio-recording'
+		</li>
+		<lI>After that, you will get a file named "folder name.vob". That's your video, use your favorite player to watch it!</li>
     </ol>
     <h2>Download</h2>
     <p>
