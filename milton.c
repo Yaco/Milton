@@ -33,6 +33,7 @@ time_t start;
 time_t current;
 
 time(&start);
+
 printf("En 10 segundos comienza la captura de diapositivas.\n");
 do{
 time(&current);
@@ -50,10 +51,16 @@ int main(int argc, char** argv)
 {
 
     if (getuid()!=0) {
-	printf("Corre el programa usando sudo, ahora eres %u.\n",getuid());
+	printf("Corre el programa usando sudo.\n");
 	return 1;
     }
 
+ if (argc != 2)
+  {
+        //el primer parametro es help
+        printf("Indique como argumento el nombre de la carpeta donde se guardaran las capturas.\r\n     Ejemplo: milton <carpeta>\n");
+	exit(0);
+  }
 
     /* iopl()
        inb() */
