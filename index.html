@@ -71,16 +71,16 @@ width: 750px;
     
     <h2>Instructions</h2>
     <ol>
-	    <li>Just before starting your presentation, run milton in the lecturer computer: <pre>$sudo milton "folder name"</pre> Also start your audio recording, use the tool you preffer or an external device.</li>
+	    <li>Just before starting your presentation, run <b>milton</b> in the lecturer computer: <pre>$ sudo milton "folder name"</pre> Also start your audio recording, use the tool you preffer or an external device.</li>
     		<li>You will have 10 seconds until milton starts to work, so go to your presentation software (eg: OpenOffice or a PDF viewer) and start the presentation.</li>
 		<li>Each time you move forward or backwards in the presentation (using up, down, left, right, avpag, repag keys of your keyboard), milton will capture the screen. <b>Dont use the mouse to control your presentation!</b></li>
 		<li>When the presentation is finished, stop the audio recording and stop milton. You will find a folder (with the name indicated in [1]) containing many png files, each per slide change you made. The filenames are sortered according to the time creation of the slide.</li>
 		<li><p>Run the script <b>milton2slideshow.sh</b> using "folder name" as the directory argument. 'milton2slideshow.sh' is just a simple fork of <a href="http://dvd-slideshow.sourceforge.net/wiki/Dir2slideshow_0.8.0">dir2slideshow</a> (tool incuded in dvd-slideshow), that introduces the time syncronization. So you can use 'milton2slideshow.sh' in the same way you use 'dir2slideshow', all features and command line options are the same.</p>
-		<p>Example: <span style="code">$ milton2slideshow -c 0.5 -n "your presenation title" "folder name"</span></p>
+		Example: <pre>$ milton2slideshow -c 0.5 -n "your presenation title" "folder name"</pre>
 		After that a file named "folder name".txt will be generated.
 		</li>
 		<li><p>The final step is to generate the video and mix it with your audio recording. We will ude dvd-slideshow for this. Example:</p>
-			dvd-slideshow -n 'Presentation title' -f "folder name.txt"  -a 'audio-recording'
+			<pre>dvd-slideshow -n 'Presentation title' -f "folder name.txt"  -a 'audio-recording'</pre>
 		</li>
 		<lI>After that, you will get a file named "folder name.vob". That's your video, use your favorite player to watch it!</li>
     </ol>
