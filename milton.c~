@@ -1,6 +1,6 @@
 
 /*
-milton - Programa para capturar slides y generar una tabla de tiempos
+slides - Programa para capturar slides y generar una tabla de tiempos
 por Franco Iacomella - bajo GNU GPL.
 
 Requiere el paquete 'scrot' para generar las capturas.
