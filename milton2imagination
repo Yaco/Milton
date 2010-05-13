@@ -1,0 +1,40 @@
+#!/bin/bash
+# milton2imagination
+
+#cd $salida
+dir=`zenity -title "Seleccione la carpeta donde estan los slides generados por Milton" --file-selection --directory`
+salida=`basename $dir`
+
+
+vuelta=0
+ant=0
+
+
+echo "#Imagination 2.0 Slideshow Project - http://imagination.sf.net" > "$dir/$salida.ima" 
+for x in `ls $dir`; do
+	let vuelta=$vuelta+1
+	file=$x
+	x=`echo $x | cut -d "-" -f2 |cut -d "." -f1`
+	x="$(echo $x | sed 's/0*//')"
+	let valor=$x-$ant
+	duracion[$vuelta]=$valor
+	echo "[slide $vuelta]" >> "$dir/$salida.ima"
+	echo "filename=$dir/$file" >> "$dir/$salida.ima"
+	echo "duration=${duracion[$vuelta]}" >> "$dir/$salida.ima"
+	echo "transition_id=19
+speed=1
+anim duration=1">> "$dir/$salida.ima"
+echo "" >> "$dir/$salida.ima"
+	ant=$x
+done
+echo >> "$dir/$salida.ima"
+echo >> "$dir/$salida.ima"
+echo "[slideshow settings]
+video format=576
+background color=0;0;0;
+distort images=true
+number of slides=$vuelta" >> "$dir/$salida.ima"
+
+echo "File generated in: $dir/$salida.ima"
+echo "Opening Imagination..."
+imagination $dir/$salida.ima
